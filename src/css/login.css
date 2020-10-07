@@ -1,0 +1,21 @@
+/* LOGIN PAGE */
+
+.login {
+  background-color: #ececec;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+/* LOGIN IMAGE */
+.login > img {
+  max-width: 250px;
+  width: 80%;
+  object-fit: contain;
+}
+
+/* LOGIN BUTTON */
+
+.login .MuiButton-root {
+  background-color: #3b5998;
+}

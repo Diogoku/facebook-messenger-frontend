@@ -1,0 +1,22 @@
+/* CHAT HEADER */
+
+.chatHeader {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+
+/* CHAT HEADER NAME */
+
+.chatHeader h4 {
+  flex: 1;
+}
+
+/* CHAT HEADER ICONS */
+
+.chatHeader .MuiSvgIcon-root {
+  color: #0099ff;
+  font-size: 28px;
+}

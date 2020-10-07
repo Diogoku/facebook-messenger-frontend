@@ -1,0 +1,36 @@
+/* CHAT INFO LISTS */
+.MuiList-padding {
+  padding: 0 !important;
+}
+
+/* CHAT INFO LIST TITLE */
+
+.chatInfoList__title .MuiTypography-body1 {
+  text-transform: uppercase;
+  font-size: 13px;
+  font-size: bold;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* CHAT INFO LIST TEXT */
+
+.chatInfoList__action > .MuiTypography-body1 {
+  color: black;
+  font-size: 12px;
+}
+
+/* CHAT INFO LIST ICON */
+
+.chatInfoList .MuiListItemIcon-root {
+  min-width: 0;
+}
+
+.iconOpenList {
+  transition: all 0.2s ease-in-out !important;
+  transform: rotate(-90deg);
+}
+
+.iconCloseList {
+  transition: all 0.2s ease-in-out !important;
+  transform: rotate(0deg);
+}

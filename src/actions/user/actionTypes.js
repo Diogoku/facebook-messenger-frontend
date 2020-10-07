@@ -1,0 +1,7 @@
+export const LOGIN = "LOGIN";
+export const LOGOUT = "LOGOUT";
+export const FRIEND_REQUEST = "FRIEND_REQUEST";
+export const BLOCK_USER = "BLOCK_USER";
+export const CANCEL_REQUEST = "CANCEL_REQUEST";
+export const ACCEPT_FRIEND_REQUEST = "ACCEPT_FRIEND_REQUEST";
+export const REJECT_FRIEND_REQUEST = "REJECT_FRIEND_REQUEST";

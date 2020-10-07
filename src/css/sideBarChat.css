@@ -1,0 +1,64 @@
+/* SIDE BAR CHAT */
+
+.sideBarChat {
+  flex: 0.2;
+  border-right: 1px solid #e0e0e0;
+  padding: 15px 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* SIDE BAR CHAT TOP */
+
+.sideBarChat__top {
+  display: flex;
+
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  row-gap: 10px;
+}
+
+.sideBarChat__top > h1 {
+  font-size: 24px;
+}
+
+/* SIBE BAR CHAT TOP ICONS */
+
+.sideBarChat__topIcons .MuiIconButton-root {
+  margin-right: 2px;
+  background-color: #f5f5f5;
+  padding: 5px;
+  color: black;
+}
+
+/* SIDE BAR CHAT MENUS */
+
+/* LIST ITEMS */
+.sideBarChat__menu .MuiMenuItem-root {
+  display: flex;
+  column-gap: 10px;
+}
+
+/* BUTTON CONTAINED PRIMARY */
+.sideBarChat__menu .MuiButton-outlinedPrimary {
+  border-color: #0099ff;
+  color: #0099ff;
+}
+
+.sideBarChat__menu .MuiButton-outlinedPrimary:hover {
+  border-color: #006db6;
+  color: #006db6;
+}
+
+/* BUTTON CONTAINED SECONDARY */
+.sideBarChat__menu .MuiButton-outlinedSecondary {
+  border-color: #ff0000;
+  color: #ff0000;
+}
+
+.sideBarChat__menu .MuiButton-outlinedSecondary:hover {
+  border-color: #ce0000;
+  color: #ce0000;
+}

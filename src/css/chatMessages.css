@@ -1,0 +1,40 @@
+/* CHAT MESSAGES */
+
+.chatMessages {
+  flex: 1;
+  padding: 15px 20px;
+  font-size: 14px;
+  overflow-y: scroll;
+}
+
+/* CHAT MESSAGES CARD */
+.chatMessages .MuiCard-root {
+  border-radius: 20px;
+  margin: 5px 0;
+  width: fit-content;
+}
+
+/* CHAT MESSAGES CONTENT */
+.chatMessages .MuiCardContent-root {
+  line-height: 1.5;
+  padding: 5px 15px;
+}
+
+/* CHAT MESSAGES CONTENT CURRENT USER */
+.chatMessages .currentUserMessage {
+  margin-left: auto;
+  background-color: #007aff;
+  color: #bfddff;
+}
+
+/* CHAT MESSAGES CONTENT OTHER USER */
+.chatMessages .otherUserMessage {
+  margin-right: auto;
+  background-color: #e4e4e9;
+  color: #535052;
+}
+
+/* CHAT MESSAGES DATE */
+.chatMessages .message__date {
+  font-size: x-small;
+}

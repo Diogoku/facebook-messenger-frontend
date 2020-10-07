@@ -1,0 +1,2 @@
+export const GET_CONVERSATION = "GET_CONVERSATION";
+export const SEND_MESSAGE = "SEND_MESSAGE";

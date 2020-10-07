@@ -1,0 +1,6 @@
+/* SIDE BAR CHAT MESSAGES LIST (FRIENDS) */
+
+.sideBarChatMessages .MuiList-root {
+  max-height: 200px;
+  overflow-y: scroll;
+}
