@@ -34,6 +34,10 @@ function App() {
         dispatch(getConversation(currentChat.chatId));
       }
     });
+    return () => {
+      channel.unbind_all();
+      channel.unsubscribe();
+    };
   }, [currentChat.chatId]);
 
   return (
