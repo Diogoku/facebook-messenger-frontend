@@ -20,7 +20,7 @@ import Avatar from "@material-ui/core/Avatar";
 // CSS
 import "../css/sideBarChatMessage.css";
 
-function SideBarChatMessages() {
+function SideBarChatMessages({ filter }) {
   const currentUser = useSelector((state) => state.userReducer);
   const [friends, setFriends] = useState([]); // friends with full data (name, facebookId, chatId)
 
@@ -53,18 +53,20 @@ function SideBarChatMessages() {
           <ListSubheader component="div" id="messenger-users"></ListSubheader>
         }
       >
-        {friends.map((friend) => (
-          <ListItem
-            button
-            key={friend.facebookId}
-            onClick={() => getFriendConversation(friend.chatId, friend.name)}
-          >
-            <ListItemAvatar>
-              <Avatar alt={`User ${friend.name} perfil photo`} />
-            </ListItemAvatar>
-            {friend.name}
-          </ListItem>
-        ))}
+        {friends
+          .filter((friend) => friend.name.startsWith(filter))
+          .map((friend) => (
+            <ListItem
+              button
+              key={friend.facebookId}
+              onClick={() => getFriendConversation(friend.chatId, friend.name)}
+            >
+              <ListItemAvatar>
+                <Avatar alt={`User ${friend.name} perfil photo`} />
+              </ListItemAvatar>
+              {friend.name}
+            </ListItem>
+          ))}
       </List>
     </div>
   );

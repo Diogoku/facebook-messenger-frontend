@@ -33,6 +33,8 @@ function SideBarChat() {
 
   // LIST
   const [addNewUserList, setAddNewUserList] = useState([]);
+  // FILTER
+  const [friendsFilter, setFriendsFilter] = useState("");
 
   useEffect(() => {
     axios
@@ -98,26 +100,26 @@ function SideBarChat() {
       <Divider />
 
       <div className="sideBarChat__form">
-        <form>
-          <TextField
-            id="SearchFriendForm"
-            label="Search friends on Messenger"
-            variant="filled"
-            color="primary"
-            name="searchFriendForm"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <IconButton size="small">
-                    <SearchIcon />
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-          />
-        </form>
+        <TextField
+          id="SearchFriendForm"
+          label="Search friends on Messenger"
+          variant="filled"
+          color="primary"
+          name="searchFriendForm"
+          value={friendsFilter}
+          onChange={(e) => setFriendsFilter(e.target.value)}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <IconButton size="small">
+                  <SearchIcon />
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+        />
 
-        <SideBarChatMessages />
+        <SideBarChatMessages filter={friendsFilter} />
       </div>
     </div>
   );
