@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getConversation } from "./actions/message/messageActionsCreator"; // ACTIONS
 
 // REACT ROUTER DOM
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PrivateRoute from "./routes/PrivateRoute";
 
 // COMPONENTS
@@ -29,8 +29,7 @@ function App() {
   useEffect(() => {
     const channel = pusher.subscribe("chats");
     channel.bind("newChat", function (data) {
-      console.log(data.change.documentKey._id == currentChat.chatId);
-      if (data.change.documentKey._id == currentChat.chatId) {
+      if (data.change.documentKey._id === currentChat.chatId) {
         dispatch(getConversation(currentChat.chatId));
       }
     });
@@ -38,7 +37,7 @@ function App() {
       channel.unbind_all();
       channel.unsubscribe();
     };
-  }, [currentChat.chatId]);
+  }, [currentChat.chatId, dispatch]);
 
   return (
     <Router>

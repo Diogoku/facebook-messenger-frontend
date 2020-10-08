@@ -14,10 +14,10 @@
 }
 
 /* CHAT WRITE MESSAGE FORM */
+
 .chatWriteMessage__form {
   width: 100%;
   display: flex;
-  flex-wrap: wrap-reverse;
 }
 
 .chatWriteMessage__form .MuiTextField-root {
@@ -31,9 +31,26 @@
   color: black;
 }
 
+/* CHAT WRITE MESSAGE FORM ICONS */
+
+.chatWriteMessage__formOptions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 /* CHAT ICONS */
 
 .chatWriteMessage__icons {
   width: 100%;
   display: flex;
+}
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 499px) {
+  .chatWriteMessage__form {
+    flex-direction: column;
+    border-bottom: 1px solid #e0e0e0;
+  }
 }

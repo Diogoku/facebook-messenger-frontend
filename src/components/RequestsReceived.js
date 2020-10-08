@@ -37,10 +37,10 @@ function RequestsReceived({ usersListId }) {
       setUsers([...users, data]);
     };
 
-    usersListId.map((userId) => {
+    usersListId.forEach((userId) => {
       fetchUserPublicData(userId);
     });
-  }, [usersListId, currentUser.user.friendsRequestSent]);
+  }, [usersListId, currentUser.user.friendsRequestReceived]);
 
   // open menu
   const openMenu = (event) => {
@@ -71,53 +71,55 @@ function RequestsReceived({ usersListId }) {
       >
         Requests Received
       </Button>
-      <Menu
-        className="sideBarChat__menu"
-        anchorEl={isOpen}
-        keepMounted
-        open={Boolean(isOpen)}
-        onClose={closeMenu}
-        PaperProps={{
-          style: {
-            maxHeight: 48 * 2.5,
-          },
-        }}
-      >
-        {users.map((user) => (
-          <MenuItem key={user.facebookId} onClick={closeMenu}>
-            <Avatar />
-            <p>{user.name}</p>
-            <Button
-              variant="outlined"
-              color="primary"
-              size="small"
-              endIcon={<CheckIcon />}
-              onClick={() =>
-                acceptFriendRequestFunc(
-                  currentUser.user.facebookId,
-                  user.facebookId
-                )
-              }
-            >
-              Accept Request
-            </Button>
-            <Button
-              variant="outlined"
-              color="secondary"
-              size="small"
-              endIcon={<CloseIcon />}
-              onClick={() =>
-                rejectFriendRequestFunc(
-                  currentUser.user.facebookId,
-                  user.facebookId
-                )
-              }
-            >
-              Reject Request
-            </Button>
-          </MenuItem>
-        ))}
-      </Menu>
+      {users.length === 0 ? null : (
+        <Menu
+          className="sideBarChat__menu"
+          anchorEl={isOpen}
+          keepMounted
+          open={Boolean(isOpen)}
+          onClose={closeMenu}
+          PaperProps={{
+            style: {
+              maxHeight: 48 * 2.5,
+            },
+          }}
+        >
+          {users.map((user) => (
+            <MenuItem key={user.facebookId} onClick={closeMenu}>
+              <Avatar />
+              <p>{user.name}</p>
+              <Button
+                variant="outlined"
+                color="primary"
+                size="small"
+                endIcon={<CheckIcon />}
+                onClick={() =>
+                  acceptFriendRequestFunc(
+                    currentUser.user.facebookId,
+                    user.facebookId
+                  )
+                }
+              >
+                Accept Request
+              </Button>
+              <Button
+                variant="outlined"
+                color="secondary"
+                size="small"
+                endIcon={<CloseIcon />}
+                onClick={() =>
+                  rejectFriendRequestFunc(
+                    currentUser.user.facebookId,
+                    user.facebookId
+                  )
+                }
+              >
+                Reject Request
+              </Button>
+            </MenuItem>
+          ))}
+        </Menu>
+      )}
     </div>
   );
 }

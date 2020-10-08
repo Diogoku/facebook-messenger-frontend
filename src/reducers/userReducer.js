@@ -9,18 +9,8 @@ import {
 } from "../actions/user/actionTypes";
 
 const initialState = {
-  user: {
-    friendsRequestsReceived: [],
-    friendsRequestsSent: [],
-    blockedList: [],
-    blockedByList: [],
-    _id: "5f78fdd5e2ca172d94950086",
-    name: "Diogo Ribeiro",
-    facebookId: "3603061043090321",
-    photoUrl: "https://graph.facebook.com/3603061043090321/picture",
-    friends: [{ facebookId: "2", chatId: "5f7bad058d73a74568aba4d3" }],
-  },
-  isAuthenticated: true,
+  user: null,
+  isAuthenticated: false,
 };
 
 export default (state = initialState, action) => {

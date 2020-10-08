@@ -38,9 +38,9 @@ function SideBarChat() {
     axios
       .get(`/publicUsers`)
       .then((users) => {
-        users.data.map((user) => {
+        users.data.forEach((user) => {
           if (
-            user.facebookId != currentUser.user.facebookId &&
+            user.facebookId !== currentUser.user.facebookId &&
             !currentUser.user.friendsRequestsReceived.includes(
               user.facebookId
             ) &&
@@ -48,7 +48,7 @@ function SideBarChat() {
             !currentUser.user.blockedList.includes(user.facebookId) &&
             !currentUser.user.blockedByList.includes(user.facebookId) &&
             !currentUser.user.friends.some(
-              (friend) => friend.facebookId == user.facebookId
+              (friend) => friend.facebookId === user.facebookId
             )
           ) {
             setAddNewUserList([...addNewUserList, user.facebookId]);

@@ -48,3 +48,11 @@
   background-color: unset;
   color: #0099ff;
 }
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 1060px) {
+  .chatInfo {
+    display: none;
+  }
+}

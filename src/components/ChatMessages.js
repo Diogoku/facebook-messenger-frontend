@@ -22,7 +22,7 @@ function ChatMessages() {
           <Card
             key={index}
             className={
-              currentUser.user.facebookId == message.from
+              currentUser.user.facebookId === message.from
                 ? "currentUserMessage"
                 : "otherUserMessage"
             }

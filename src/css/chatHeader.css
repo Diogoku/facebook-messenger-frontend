@@ -5,13 +5,22 @@
   padding: 10px 15px;
   display: flex;
   align-items: center;
-  column-gap: 5px;
+  gap: 5px;
 }
 
-/* CHAT HEADER NAME */
+/* CHAT HEADER USER INFO */
 
-.chatHeader h4 {
+.chatHeader__userInfo {
   flex: 1;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+/* CHAT HEADER CHAT OPTIONS */
+
+.chatHeader__options {
+  display: flex;
 }
 
 /* CHAT HEADER ICONS */
@@ -19,4 +28,14 @@
 .chatHeader .MuiSvgIcon-root {
   color: #0099ff;
   font-size: 28px;
+}
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 380px) {
+  .chatHeader {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

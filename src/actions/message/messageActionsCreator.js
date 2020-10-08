@@ -1,4 +1,8 @@
-import { GET_CONVERSATION, SEND_MESSAGE } from "./actionTypes";
+import {
+  GET_CONVERSATION,
+  SEND_MESSAGE,
+  SET_FRIEND_NAME_CHAT,
+} from "./actionTypes";
 
 // AXIOS
 import axios from "../../axios";
@@ -21,6 +25,16 @@ export const getConversation = (chatId) => {
   };
 };
 
+// set friend name chat
+export const setFriendNameChat = (friendName) => {
+  console.log(friendName);
+  return (dispatch) => {
+    dispatch({
+      type: SET_FRIEND_NAME_CHAT,
+      friendName: friendName,
+    });
+  };
+};
 // send message
 export const sendMessage = (chatId, currentUserId, message) => {
   return (dispatch) => {

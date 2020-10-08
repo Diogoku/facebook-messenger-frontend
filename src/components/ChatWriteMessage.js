@@ -61,17 +61,19 @@ function ChatWriteMessage() {
           onChange={(e) => setMessage(e.target.value)}
         />
 
-        <Tooltip title="Send Message" aria-label="Send Message">
-          <Button size="small" type="submit" onClick={sendMessageFunc}>
-            <SendIcon />
-          </Button>
-        </Tooltip>
+        <div className="chatWriteMessage__formOptions">
+          <Tooltip title="Send Message" aria-label="Send Message">
+            <Button size="small" type="submit">
+              <SendIcon />
+            </Button>
+          </Tooltip>
 
-        <Tooltip title="Like" aria-label="Like">
-          <Button size="small">
-            <ThumbUp />
-          </Button>
-        </Tooltip>
+          <Tooltip title="Like" aria-label="Like">
+            <Button size="small">
+              <ThumbUp />
+            </Button>
+          </Tooltip>
+        </div>
       </form>
       <div className="chatWriteMessage__icons">
         <Tooltip title="More Actions" aria-label="More Actions">

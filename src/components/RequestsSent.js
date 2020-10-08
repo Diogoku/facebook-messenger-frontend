@@ -33,7 +33,7 @@ function RequestsSent({ usersListId }) {
       setUsers([...users, data]);
     };
 
-    usersListId.map((userId) => {
+    usersListId.forEach((userId) => {
       fetchUserPublicData(userId);
     });
   }, [usersListId, currentUser.user.friendsRequestSent]);
@@ -62,39 +62,41 @@ function RequestsSent({ usersListId }) {
       >
         Requests Sent
       </Button>
-      <Menu
-        className="sideBarChat__menu"
-        anchorEl={isOpen}
-        keepMounted
-        open={Boolean(isOpen)}
-        onClose={closeMenu}
-        PaperProps={{
-          style: {
-            maxHeight: 48 * 2.5,
-          },
-        }}
-      >
-        {users.map((user) => (
-          <MenuItem key={user.facebookId} onClick={closeMenu}>
-            <Avatar />
-            <p>{user.name}</p>
-            <Button
-              variant="outlined"
-              color="secundary"
-              size="small"
-              endIcon={<SendIcon />}
-              onClick={() =>
-                cancelFriendRequestFunc(
-                  currentUser.user.facebookId,
-                  user.facebookId
-                )
-              }
-            >
-              Cancel Request
-            </Button>
-          </MenuItem>
-        ))}
-      </Menu>
+      {users.length === 0 ? null : (
+        <Menu
+          className="sideBarChat__menu"
+          anchorEl={isOpen}
+          keepMounted
+          open={Boolean(isOpen)}
+          onClose={closeMenu}
+          PaperProps={{
+            style: {
+              maxHeight: 48 * 2.5,
+            },
+          }}
+        >
+          {users.map((user) => (
+            <MenuItem key={user.facebookId} onClick={closeMenu}>
+              <Avatar />
+              <p>{user.name}</p>
+              <Button
+                variant="outlined"
+                color="secundary"
+                size="small"
+                endIcon={<SendIcon />}
+                onClick={() =>
+                  cancelFriendRequestFunc(
+                    currentUser.user.facebookId,
+                    user.facebookId
+                  )
+                }
+              >
+                Cancel Request
+              </Button>
+            </MenuItem>
+          ))}
+        </Menu>
+      )}
     </div>
   );
 }

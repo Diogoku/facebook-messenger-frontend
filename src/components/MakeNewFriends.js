@@ -34,7 +34,7 @@ function MakeNewFriends({ usersListId }) {
       setUsers([...users, data]);
     };
 
-    usersListId.map((userId) => {
+    usersListId.forEach((userId) => {
       fetchUserPublicData(userId);
     });
   }, [usersListId]);
@@ -68,47 +68,52 @@ function MakeNewFriends({ usersListId }) {
       >
         Add Friends
       </Button>
-      <Menu
-        className="sideBarChat__menu"
-        anchorEl={isOpen}
-        keepMounted
-        open={Boolean(isOpen)}
-        onClose={closeMenu}
-        PaperProps={{
-          style: {
-            maxHeight: 48 * 2.5,
-          },
-        }}
-      >
-        {users.map((user) => (
-          <MenuItem key={user.facebookId} onClick={closeMenu}>
-            <Avatar />
-            <p>{user.name}</p>
-            <Button
-              variant="outlined"
-              color="primary"
-              size="small"
-              endIcon={<PersonAddIcon />}
-              onClick={() =>
-                friendRequestFunc(currentUser.user.facebookId, user.facebookId)
-              }
-            >
-              Friend Request
-            </Button>
-            <Button
-              variant="outlined"
-              color="secondary"
-              size="small"
-              endIcon={<BlockIcon />}
-              onClick={() =>
-                blockUserFunc(currentUser.user.facebookId, user.facebookId)
-              }
-            >
-              Block
-            </Button>
-          </MenuItem>
-        ))}
-      </Menu>
+      {users.length === 0 ? null : (
+        <Menu
+          className="sideBarChat__menu"
+          anchorEl={isOpen}
+          keepMounted
+          open={Boolean(isOpen)}
+          onClose={closeMenu}
+          PaperProps={{
+            style: {
+              maxHeight: 48 * 2.5,
+            },
+          }}
+        >
+          {users.map((user) => (
+            <MenuItem key={user.facebookId} onClick={closeMenu}>
+              <Avatar />
+              <p>{user.name}</p>
+              <Button
+                variant="outlined"
+                color="primary"
+                size="small"
+                endIcon={<PersonAddIcon />}
+                onClick={() =>
+                  friendRequestFunc(
+                    currentUser.user.facebookId,
+                    user.facebookId
+                  )
+                }
+              >
+                Friend Request
+              </Button>
+              <Button
+                variant="outlined"
+                color="secondary"
+                size="small"
+                endIcon={<BlockIcon />}
+                onClick={() =>
+                  blockUserFunc(currentUser.user.facebookId, user.facebookId)
+                }
+              >
+                Block
+              </Button>
+            </MenuItem>
+          ))}
+        </Menu>
+      )}
     </div>
   );
 }

@@ -1,5 +1,8 @@
 import React from "react";
 
+// REACT-REDUX
+import { useSelector } from "react-redux";
+
 // MATERIAL-UI
 import Avatar from "@material-ui/core/Avatar";
 
@@ -20,6 +23,8 @@ import ChatInfoList from "./ChatInfoList";
 import "../css/chatInfo.css";
 
 function ChatInfo() {
+  const currentConversation = useSelector((state) => state.messageReducer);
+
   const listItems = [
     {
       title: "More actions",
@@ -70,19 +75,25 @@ function ChatInfo() {
     },
   ];
 
-  return (
-    <div className="chatInfo">
-      <div className="chatInfo__top">
-        <Avatar alt="unknow" className="chatInfo__avatar" />
-        <h4>Raul Silvestre</h4>
+  if (currentConversation.chatId) {
+    return (
+      <div className="chatInfo">
+        <div className="chatInfo__top">
+          <Avatar alt="unknow" className="chatInfo__avatar" />
+          <h4>{currentConversation.friendName}</h4>
+        </div>
+        <div className="chatInfo__lists">
+          {listItems.map((list, index) => (
+            <ChatInfoList
+              key={index}
+              title={list.title}
+              actions={list.actions}
+            />
+          ))}
+        </div>
       </div>
-      <div className="chatInfo__lists">
-        {listItems.map((list, index) => (
-          <ChatInfoList key={index} title={list.title} actions={list.actions} />
-        ))}
-      </div>
-    </div>
-  );
+    );
+  } else return null;
 }
 
 export default ChatInfo;

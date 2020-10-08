@@ -16,26 +16,39 @@ import "../css/chatHeader.css";
 
 function ChatHeader() {
   const currentUser = useSelector((state) => state.userReducer);
+  const currentConversation = useSelector((state) => state.messageReducer);
 
   return (
     <div className="chatHeader">
-      <Avatar alt={currentUser.user.name} src={currentUser.user.photoUrl} />
-      <h4>{currentUser.user.name}</h4>
-      <Tooltip title="Start a call" aria-label="Start a call">
-        <Button size="small">
-          <PhoneIcon />
-        </Button>
-      </Tooltip>
-      <Tooltip title="Start a video call" aria-label="Start a call">
-        <Button size="small">
-          <VideocamIcon />
-        </Button>
-      </Tooltip>
-      <Tooltip title="Chat info" aria-label="Chat info">
-        <Button size="small">
-          <InfoIcon />
-        </Button>
-      </Tooltip>
+      <div className="chatHeader__userInfo">
+        <Avatar
+          alt={
+            currentConversation.chatId
+              ? `${currentUser.user.name} facebook image.`
+              : `facebook image.`
+          }
+        />
+        <h4>
+          {currentConversation.chatId ? currentConversation.friendName : null}
+        </h4>
+      </div>
+      <div className="chatHeader__options">
+        <Tooltip title="Start a call" aria-label="Start a call">
+          <Button size="small">
+            <PhoneIcon />
+          </Button>
+        </Tooltip>
+        <Tooltip title="Start a video call" aria-label="Start a call">
+          <Button size="small">
+            <VideocamIcon />
+          </Button>
+        </Tooltip>
+        <Tooltip title="Chat info" aria-label="Chat info">
+          <Button size="small">
+            <InfoIcon />
+          </Button>
+        </Tooltip>
+      </div>
     </div>
   );
 }

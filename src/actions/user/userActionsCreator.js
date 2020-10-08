@@ -27,7 +27,6 @@ export const friendRequest = (from, to) => {
     axios
       .put("friends/request/send", { from: from, to: to })
       .then((response) => {
-        console.log(response);
         if (response.status == 200) {
           dispatch({ type: FRIEND_REQUEST, userRequestedId: to });
         }
